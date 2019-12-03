@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Look at that placeholder!</title>
+</head>
+<body>
+
+<h1>New Issue</h1>
+<form action='Issues.html' method="post" id="newIssueForm">
+	<label for='id'>ID</label><br>
+	<input type='text' name='id' id='id' required><br>
+	<label for='title'>Title</label><br>
+	<input type='text' name='title' id='title' required><br>
+	<label for='status'>Status</label><br>
+	<input type='text' name='status' id='status' required><br>
+	<label for='assignee'>assignee</label><br>
+	<input type='text' name='assignee' id='assignee' required><br>
+	<label for='created'>Created</label><br>
+	<input type='text' name='created' id='created' required><br>
+	<label for='updated'>Updated</label><br>
+	<input type='text' name='updated' id='updated' required><br>
+	<label for='details'>Details</label><br>
+	<input type='text' name='details' id='details' required><br>
+	<input type='submit' name="action" value='Add'>
+</form>
+
+<script src="js/issues/IssueStore.js"></script>
+<script src="js/issues/Issue.js"></script>
+<script src="js/issues/create_issue.js"></script>
+</body>
+<footer>
+</footer>
+</html> 

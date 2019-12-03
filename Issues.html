@@ -2,14 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Look at that placeholder!</title>
+<title>It's Alive!</title>
 </head>
 <body>
 
-<h1>This is a placeholder!</h1>
-<img src="tissue.jpg" alt="A tissue box">
-<!--https://images-na.ssl-images-amazon.com/images/I/71gsZHdwe7L._SX466_.jpg-->
+<h1>New Issue</h1>
+<form action='create_issue.html' method="post" id="newIssueForm">
+	<input type='submit' name="action" id="createBut" value='Create'>
+</form>
 
+<h1>Remove Issue</h1>
+<form action='Issues.html' method="post" id="removeForm">
+	<label for='id'>ID</label><br>
+	<input type='text' name='id' id='id' required><br>
+	<input type='submit' name="action" id="removeBut" value='Remove'>
+</form>
+
+<h1>Print Issues</h1>
+<form onsubmit="return false" id="printForm">
+<button type='submit' id="printBut" value='Print'>Print</button>
+</form>
+
+<script src="js/issues/Issue.js"></script>
+<script src="js/issues/IssueStore.js"></script>
+<script src="js/issue.js"></script>
 </body>
 <footer>
 </footer>

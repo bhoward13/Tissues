@@ -7,13 +7,8 @@
 	window.onsubmit = function() {
 		var email = document.getElementById('userName').value;
 		var password = document.getElementById('password').value;
+		//var newUser = new User(email, password);
 		var storage = new UserStore(sessionStorage);
-		if (storage.get(email) == password){
-			console.log('yes');
-			return true;
-		} else {
-			alert('Incorrect password or email');
-			return false;
-		}
+		storage.save(email, password);
 	}
 })(window)
