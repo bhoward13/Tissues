@@ -2,29 +2,30 @@
 	'use strict';
 	var App = window.App || {};
 	
-	function IssueStore(storage){
-		this.storage = storage
-	}
-	
-	
-	IssueStore.prototype.add = function (key, val) {
-		this.storage.setItem(key, val);
+	function IssueStore(data){
+		if (data == null) {
+			this.data ={};
+		}
+		else {
+			this.data = JSON.parse(data);
+		}
 	};
 	
-	IssueStore.prototype.remove = function(key) {
-		this.storage.removeItem(key);
+	IssueStore.prototype.add = function(key, val) {
+		delete val.db;
+		this.data[key] = val;
 	};
 	
-	IssueStore.prototype.get = function (key){
-		return this.storage.getItem(key);
+	IssueStore.prototype.get = function(key) {
+		return this.data[key];
 	};
 	
 	IssueStore.prototype.getAll = function() {
-		for (var key in this.storage) {
-			if (this.storage.hasOwnProperty(key)) {
-				console.log(key, this.storage[key]);
-			}
-		}
+		return this.data;
+	};
+	
+	IssueStore.prototype.remove = function(key) {
+		delete this.data[key];
 	};
 	
 	App.IssueStore = IssueStore;

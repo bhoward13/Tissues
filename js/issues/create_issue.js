@@ -4,7 +4,7 @@
 	var Issue = App.Issue;
 	var IssueStore = App.IssueStore;
 	
-	var storage = new IssueStore(sessionStorage);
+	var storage = new IssueStore(sessionStorage.getItem('IssueStorage'));
 	
 	window.onsubmit = function() {
 		var id = document.getElementById('id').value;
@@ -17,5 +17,6 @@
 		
 		var newIssue = new Issue(id, storage);
 		newIssue.open(title, status, assignee, created, updated, details);
+		sessionStorage.setItem('IssueStorage', JSON.stringify(storage.getAll()));
 	}
 })(window)

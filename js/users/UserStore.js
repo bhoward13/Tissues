@@ -2,16 +2,29 @@
 	'use strict';
 	var App = window.App || {};
 	
-	function UserStore(storage){
-		this.storage = storage
-	}
-	
-	UserStore.prototype.get = function (key){
-		return this.storage.getItem(key);
+	function UserStore(data){
+		if (data == null) {
+			this.data ={};
+		}
+		else {
+			this.data = JSON.parse(data);
+		}
 	};
 	
-	UserStore.prototype.save = function (key, val) {
-		this.storage.setItem(key, val);
+	UserStore.prototype.add = function(key, val) {
+		this.data[key] = val;
+	};
+	
+	UserStore.prototype.get = function(key) {
+		return this.data[key];
+	};
+	
+	UserStore.prototype.getAll = function() {
+		return this.data;
+	};
+	
+	UserStore.prototype.remove = function(key) {
+		delete this.data[key];
 	};
 	
 	App.UserStore = UserStore;
